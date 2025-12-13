@@ -1,0 +1,50 @@
+import mongoose from "mongoose";
+
+const prodcutSchema = new mongoose.Schema({
+    productId : {
+        type : String,
+        required : true,
+        unique : true
+    },
+    name : {
+        type : String,
+        required : true
+    },
+    altNames: {
+        type : [String],
+        default:[]
+    },
+    labelledPrice:{
+        type : String,
+        required : true
+    },
+    price : {
+        type : Number,
+        required : true
+    },
+    images : {
+        type : [String],
+        default : ["/default-produdct.jpg"]
+    },
+    description : {
+        type : String, 
+        required : true
+    },
+    stock: {
+        type : Number,
+        required : true,
+        default : 0
+    },
+    isAvailable : {
+        type : Boolean,
+        default : true
+    },
+    category : {
+        type : String,
+        required : true,
+        default : "cosmetics"
+    }
+})
+
+const Product = mongoose.model("products", prodcutSchema); // collection name in MongoDB will be products
+export default Product

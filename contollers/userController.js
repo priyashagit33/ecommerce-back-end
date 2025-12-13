@@ -7,6 +7,20 @@ import jwt from "jsonwebtoken";
 
 export function createUser(req,res){
     
+if (req.user == null){
+    res.status(403).json({
+        message: "Please login to create a student"
+    }  
+    );
+    return
+}
+if (req.user.role != "admin"){
+    res.status(403).json({
+        message: "Please login as an admin to create users"
+    });
+    return
+}
+
     const passwordhash = bcrypt.hashSync(req.body.password,10)
 
     const userData = {
@@ -42,7 +56,7 @@ export function createUser(req,res){
     )
 }
 
-export function loginUser(req,res){
+export function loginUser(req,res){  // user Authentication
     const email = req.body.email
     const password = req.body.password
 
@@ -80,5 +94,17 @@ export function loginUser(req,res){
             }
         }
 })
+}
+
+export function isAdmin(req){
+    // console.log (req.user.role)
+    if (req.user == null){
+        return false;
+    }
+    if (req.user.role == "admin"){
+        return true;
+    }else {
+        return false;
+    }
 }
 
