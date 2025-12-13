@@ -37,8 +37,8 @@ app.listen(5000,()=>{
     console.log ("server is running");
 })
 
-app.use("/users",userRouter)
-app.use("/products",productRouter)
+app.use("/api/users",userRouter)
+app.use("/api/products",productRouter)
 
 let connectionString = "mongodb+srv://admin:123@cluster0.bskafgy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
