@@ -3,10 +3,12 @@ import userRouter from "./routers/userRouter.js";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import productRouter from "./routers/productRouter.js";
+import cors from "cors"
 
 
 const app = express();
 app.use(express.json())
+app.use(cors())
 
 app.use(
     (req,res,next)=>{
