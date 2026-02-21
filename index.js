@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import productRouter from "./routers/productRouter.js";
 import cors from "cors"
+import orderRouter from "./routers/orderRouter.js";
 
 
 const app = express();
@@ -41,6 +42,7 @@ app.listen(5000,()=>{
 
 app.use("/api/users",userRouter)
 app.use("/api/products",productRouter)
+app.use("/api/orders",orderRouter)
 
 let connectionString = "mongodb+srv://admin:123@cluster0.bskafgy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 

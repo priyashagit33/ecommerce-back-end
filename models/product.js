@@ -15,7 +15,7 @@ const prodcutSchema = new mongoose.Schema({
         default:[]
     },
     labelledPrice:{
-        type : String,
+        type : Number,
         required : true
     },
     price : {

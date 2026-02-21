@@ -86,6 +86,7 @@ export async function updateProduct(req, res) {
             },
             data
         );
+        console.log(data)
         res.json({ message: " Product is updated successfully" })
 
     } catch (error) {
