@@ -25,8 +25,8 @@ export async function createProduct(req, res) {
 }
 
 export async function getProduct(req, res) {
-    console.log("Fetching products")
-    console.log(isAdmin(req))
+   // console.log("Fetching products")
+   // console.log(isAdmin(req))
     try {
 
         if (isAdmin(req)) {
